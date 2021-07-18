@@ -3,6 +3,7 @@ import { Platform, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react
 
 import field from '../assets/images/field.jpg';
 import { Field } from '../components/Field';
+import { TeamStats } from '../components/TeamStats';
 
 // this is a grid 
 // each group is a row 
@@ -22,7 +23,10 @@ export default function TabOneScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TeamStats />
+
       <Field />
+
       <Pressable onPress={handleViewPlayers} style={styles.viewplayerbtn}>
         <Text style={styles.btnText}>View Players</Text>
       </Pressable>
@@ -32,18 +36,20 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    backgroundColor: '#72CC5E',
     alignItems: 'center',
+    flex: 1,
     marginTop: Platform.OS === 'android' ? 30 : 0
   },
   viewplayerbtn: {
     backgroundColor: 'orange',
-    marginVertical: 20,
+    marginVertical: 10,
     padding: 10,
     width: '90%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 20
+    borderRadius: 20,
+    marginTop: 'auto'
   },
   btnText: {
     color: 'black',
