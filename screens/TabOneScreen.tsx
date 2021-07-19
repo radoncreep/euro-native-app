@@ -8,6 +8,7 @@ import { PlayerListItem } from '../components/PlayerListItem';
 import { TeamStats } from '../components/TeamStats';
 import { players } from '../assets/data/players';
 import { Filters } from '../components/Filters';
+import { PlayersList } from '../components/PlayersList';
 
 export default function TabOneScreen() {
   const playersBottomSheet = useRef<BottomSheet>(null);
@@ -45,13 +46,7 @@ export default function TabOneScreen() {
         <Pressable onPress={handleFilters} style={[styles.viewplayerbtn, { alignSelf: 'center' }]}>
           <Text style={styles.btnText}>Filters</Text>
         </Pressable>
-        <BottomSheetFlatList 
-          data={players}
-          renderItem={({ item }) => (
-              <PlayerListItem player={item} />
-            )
-          }
-        />
+        <PlayersList />
       </BottomSheet>
 
       <BottomSheet
