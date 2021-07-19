@@ -7,18 +7,22 @@ import { Field } from '../components/Field';
 import { PlayerListItem } from '../components/PlayerListItem';
 import { TeamStats } from '../components/TeamStats';
 import { players } from '../assets/data/players';
+import { Filters } from '../components/Filters';
 
 export default function TabOneScreen() {
   const playersBottomSheet = useRef<BottomSheet>(null);
+  const filterBottomSheet = useRef<BottomSheet>(null);
+
+  // an array of positions wherre we wanr our flatlist to snap
+  const snapPoints = [0, '50%', '100%'];
 
   const handleViewPlayers = () => {
     playersBottomSheet.current?.snapTo(1)
-
     // expands to the max point in snapPoints
     // playersBottomSheet.current?.expand()
-  }
-// an array of positions wherre we wanr our flatlist to snap
-  const snapPoints = [0, '50%', '100%'];
+  };
+
+  const handleFilters = () => filterBottomSheet.current?.snapTo(1);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -38,6 +42,9 @@ export default function TabOneScreen() {
         snapPoints={snapPoints}
         // onChange={handleSheetChanges}
       >
+        <Pressable onPress={handleFilters} style={[styles.viewplayerbtn, { alignSelf: 'center' }]}>
+          <Text style={styles.btnText}>Filters</Text>
+        </Pressable>
         <BottomSheetFlatList 
           data={players}
           renderItem={({ item }) => (
@@ -46,7 +53,14 @@ export default function TabOneScreen() {
           }
         />
       </BottomSheet>
-      
+
+      <BottomSheet
+        ref={filterBottomSheet}
+        index={0}
+        snapPoints={snapPoints}
+      >
+        <Filters />
+      </BottomSheet>
     </SafeAreaView>
   );
 }
@@ -58,7 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Platform.OS === 'android' ? 30 : 0
   },
-  contentContainer: {},
   viewplayerbtn: {
     backgroundColor: 'orange',
     marginVertical: 10,
