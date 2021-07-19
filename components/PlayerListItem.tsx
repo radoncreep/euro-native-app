@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useRecoilState } from 'recoil';
+import { myTeamState } from '../atoms/MyTeam';
 import { Player } from '../types';
 
 interface Props {
@@ -8,8 +10,17 @@ interface Props {
 }
 
 export const PlayerListItem = ({ player } : Props) => {
+    const [ myTeam, setMyTeam ] = useRecoilState(myTeamState);
+    
+    const handlePress = () => {
+       setMyTeam((currentPlayers) => ([...currentPlayers, player]))
+    }
+
     return (
-        <View style={styles.container}>
+        <Pressable 
+            style={styles.container}
+            onPress={handlePress}
+        >
             <Image style={styles.image} source={{ uri: `https://media.api-sports.io/football/players/${player.id}.png`}}/>
 
             <View style={{ flexGrow: 1 }}>
@@ -23,7 +34,7 @@ export const PlayerListItem = ({ player } : Props) => {
             </View>
 
             <Text style={styles.points}>{player.totalPoints}</Text>
-        </View>
+        </Pressable>
     )
 };
 
