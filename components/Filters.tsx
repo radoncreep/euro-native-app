@@ -1,22 +1,40 @@
 import React from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
-import { Image, StyleSheet, Text, View } from "react-native";
+import { positionFilterState } from '../atoms/Players';
+
+const staticArrayPositions = ['FWD', 'MID', 'DEF', 'GK'];
 
 export const Filters= () => {
+    const [ positionFilter, setPositionFilter ] = useRecoilState(positionFilterState);
+
+    // instead of doing its open its closed
+    const handleFilterPress = (position: string) => {
+        setPositionFilter((currentPositionFilter) => {
+            if (currentPositionFilter.includes(position)) {
+                return currentPositionFilter.filter((pos) => pos !== position)
+            } else {
+               return [...currentPositionFilter, position];
+            }
+        });
+    };
+
+    const isSelected = position => positionFilter.includes(position);
+
     return (
         <View style={styles.container}>
-            <View style={styles.filterTextContainer}>
-                <Text style={styles.text}>FWD</Text>
-            </View>
-            <View style={styles.filterTextContainer}>
-                <Text style={styles.text}>MID</Text>
-            </View>
-            <View style={styles.filterTextContainer}>
-                <Text style={styles.text}>DEF</Text>
-            </View>
-            <View style={styles.filterTextContainer}>
-                <Text style={styles.text}>GK</Text>
-            </View>
+            {staticArrayPositions.map((elem) => (
+                <Pressable 
+                    style={[styles.filterTextContainer, { 
+                        backgroundColor: isSelected(elem) ? 'purple' : '#ddd'
+                    }]} 
+                    onPress={() => handleFilterPress(elem)}
+                    key={elem}
+                >
+                    <Text style={styles.text}>{elem}</Text>
+                </Pressable>
+            ))}
         </View>
     )
 };
