@@ -16,6 +16,8 @@ export const PlayerListItem = ({ player } : Props) => {
        setMyTeam((currentPlayers) => ([...currentPlayers, player]))
     }
 
+    // const isSelected = myTeam.includes((p) => p.id === player.id);
+
     return (
         <Pressable 
             style={styles.container}
