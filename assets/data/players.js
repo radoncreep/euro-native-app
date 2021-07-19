@@ -3,7 +3,7 @@ export const players = [
     id: '1',
     name: 'C. Ronaldo',
     match: 'BEL v POR',
-    price: 12_200_000,
+    price: 12200000,
     position: 'FWD',
     totalPoints: 29
   },
@@ -11,7 +11,7 @@ export const players = [
     id: '2',
     name: 'G. Wijnaldum',
     match: 'NED v CZE',
-    price: 8_100_000,
+    price: 8100000,
     position: 'MID',
     totalPoints: 23
   },
@@ -19,7 +19,7 @@ export const players = [
     id: '3',
     name: 'E. Forsberg',
     match: 'SWE v UKR',
-    price: 7_700_000,
+    price: 7700000,
     position: 'MID',
     totalPoints: 23
   },
@@ -27,7 +27,7 @@ export const players = [
     id: '4',
     name: 'D. Dumfries',
     match: 'NED v CZE',
-    price: 5_600_000,
+    price: 5600000,
     position: 'DEF',
     totalPoints: 22
   },
@@ -35,7 +35,7 @@ export const players = [
     id: '5',
     name: 'P. Schick',
     match: 'NED v CZE',
-    price: 8_400_000,
+    price: 8400000,
     position: 'FWD',
     totalPoints: 21
   },
@@ -43,7 +43,7 @@ export const players = [
     id: '6',
     name: 'X. Shaqiri',
     match: 'FRA v SUI',
-    price: 7_200_000,
+    price: 7200000,
     position: 'MID',
     totalPoints: 21
   },
@@ -51,7 +51,7 @@ export const players = [
     id: '7',
     name: 'M. Depay',
     match: 'NED v CZE',
-    price: 10_100_000,
+    price: 10100000,
     position: 'FWD',
     totalPoints: 20
   },
@@ -59,7 +59,7 @@ export const players = [
     id: '8',
     name: 'C. Ronaldo',
     match: 'BEL v POR',
-    price: 12_200_000,
+    price: 12200000,
     position: 'FWD',
     totalPoints: 29
   },
@@ -67,7 +67,7 @@ export const players = [
     id: '9',
     name: 'G. Wijnaldum',
     match: 'NED v CZE',
-    price: 8_100_000,
+    price: 8100000,
     position: 'MID',
     totalPoints: 23
   },
@@ -75,7 +75,7 @@ export const players = [
     id: '10',
     name: 'E. Forsberg',
     match: 'SWE v UKR',
-    price: 7_700_000,
+    price: 7700000,
     position: 'MID',
     totalPoints: 23
   },
@@ -83,7 +83,7 @@ export const players = [
     id: '11',
     name: 'D. Dumfries',
     match: 'NED v CZE',
-    price: 5_600_000,
+    price: 5600000,
     position: 'DEF',
     totalPoints: 22
   },
@@ -91,7 +91,7 @@ export const players = [
     id: '12',
     name: 'P. Schick',
     match: 'NED v CZE',
-    price: 8_400_000,
+    price: 8400000,
     position: 'FWD',
     totalPoints: 21
   },
@@ -99,7 +99,7 @@ export const players = [
     id: '13',
     name: 'X. Shaqiri',
     match: 'FRA v SUI',
-    price: 7_200_000,
+    price: 7200000,
     position: 'MID',
     totalPoints: 21
   },
@@ -107,7 +107,7 @@ export const players = [
     id: '14',
     name: 'M. Depay',
     match: 'NED v CZE',
-    price: 10_100_000,
+    price: 10100000,
     position: 'FWD',
     totalPoints: 20
   },

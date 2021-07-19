@@ -1,5 +1,4 @@
 import React from 'react';
-import { } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 
 export const TeamStats = () => {
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '90%',
         padding: 10,
-        marginVertical: 10,
+        marginVertical: 5,
         borderWidth: 2,
         borderColor: '#3Eabd1'
     },
@@ -34,7 +33,8 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 14,
-        fontWeight: "500"
+        fontWeight: "500",
+        color: '#333'
     },
     value: {
         fontSize: 18,
