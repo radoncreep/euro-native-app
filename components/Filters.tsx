@@ -13,7 +13,7 @@ export const Filters= () => {
     const handleFilterPress = (position: string) => {
         setPositionFilter((currentPositionFilter) => {
             if (currentPositionFilter.includes(position)) {
-                return currentPositionFilter.filter((pos) => pos !== position)
+                return currentPositionFilter.filter((pos) => pos !== position) // to avoid duplicates in the state
             } else {
                return [...currentPositionFilter, position];
             }
