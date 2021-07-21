@@ -1,5 +1,5 @@
 import BottomSheet, { BottomSheetFlatList } from '@gorhom/bottom-sheet';
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Platform, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import field from '../assets/images/field.jpg';
@@ -46,7 +46,9 @@ export default function TabOneScreen() {
         <Pressable onPress={handleFilters} style={[styles.viewplayerbtn, { alignSelf: 'center' }]}>
           <Text style={styles.btnText}>Filters</Text>
         </Pressable>
-        <PlayersList />
+        <Suspense fallback={() => <Text>Loading...</Text>}>
+          <PlayersList />
+        </Suspense>
       </BottomSheet>
 
       <BottomSheet
