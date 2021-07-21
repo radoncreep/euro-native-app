@@ -16,28 +16,61 @@ export const myFormationState = atom({
         FWD: 3,
         MID: 3,
         DEF: 4,
-        GK: 1
+        GCK: 1
     }
 });
  
-export const allPlayerState = atom({
-    key: 'allPlayerState',
-    default: players
-});
+// export const allPlayerState = atom({
+//     key: 'allPlayerState',
+//     default: players
+// });
 
 // export const allPlayerState = selector({
 //     key: 'allPlayerState',
 //     get: async () => {
-//         return fetchedData.response.map((entry) => ({
-//             id: entry.player.id,
-//             name: entry.player.name,
-//             match: "DSA VS ADS",
-//             price: 12900000,
-//             position: playerPositions[entry.statistics[0].games.position],
-//             totalPoints: 29
-//         }))
+//             setTimeout(() => {
+//                 return fetchedData.response.map((entry) => ({
+//                     id: entry.player.id,
+//                     name: entry.player.name,
+//                     match: "DSA VS ADS",
+//                     price: 12900000,
+//                     position: playerPositions[entry.statistics[0].games.position],
+//                     totalPoints: 29
+//                 }))
+//             }, 10000)
 //     }
 // });
+
+
+export const allPlayerState = selector({
+    key: 'allPlayerState',
+    get: async () => {
+
+        try {
+            const fetchedData = await fetch("https://api-football-v1.p.rapidapi.com/v3/players?league=4&season=2020", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "088e60ea5dmsh287b484bc2a6337p18c210jsn1dc203c9a216",
+                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                }
+            });
+    
+            const json = await fetchedData.json();
+    
+            return json.response.map((entry) => ({
+                    id: entry.player.id,
+                    name: entry.player.name,
+                    match: "DSA VS ADS",
+                    price: 12900000,
+                    position: playerPositions[entry.statistics[0].games.position],
+                    totalPoints: 29
+                }))
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+});
 
 export const positionFilterState =  atom({
     key: 'positionFilterState',

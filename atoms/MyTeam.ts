@@ -7,7 +7,7 @@ export const myTeamState = atom({
     default: [] as Player[] // this is an array of the object type Player
 });
 
-const staticArrayPositions = ['FWD', 'MID', 'DEF', 'GK'];
+const staticArrayPositions = ['FWD', 'MID', 'DEF', 'GCK'];
 
 // structuring the positions for the team state
 // this selector is subscribed to the myTeamState atom i.e whenever there is a change in the atom then the selector executes to the corresponding change
@@ -36,4 +36,19 @@ export const myPlayersByPosiition = selector({
 
         return groupedPlayers;
     } 
+});
+
+// returns number of players in my team
+export const numOfPlayers = selector({
+    key: 'numOfPlayers',
+    get: ({ get} ) => {
+        return get(myTeamState).length;
+    }
+});
+
+export const valueOfPlayers = selector({
+    key: 'valueOfPlayers',
+    get: ({ get }) => {
+        return get(myTeamState).reduce(( acc, player) => acc + player.price, 0);
+    }
 })

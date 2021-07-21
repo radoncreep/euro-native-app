@@ -25,7 +25,7 @@ export enum Positions {
   FWD = 'FWD',
   MID = 'MID',
   DEF = 'DEF',
-  GK = 'GK',
+  GCK = 'GCK',
 }
 
 export type Player = {

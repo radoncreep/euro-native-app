@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { positionFilterState } from '../atoms/Players';
 
-const staticArrayPositions = ['FWD', 'MID', 'DEF', 'GK'];
+const staticArrayPositions = ['FWD', 'MID', 'DEF', 'GCK'];
 
 export const Filters= () => {
     const [ positionFilter, setPositionFilter ] = useRecoilState(positionFilterState);
