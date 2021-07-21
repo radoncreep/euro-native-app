@@ -1,5 +1,14 @@
 import { atom, selector } from 'recoil';
 import { players } from '../assets/data/players';
+import fetchedData from '../assets/data/response.json';
+import { Player } from '../types';
+
+const playerPositions = {
+    Attacker: "FWD",
+    Defender: "DEF",
+    Midfielder: "MID",
+    Goalkeeper: "GCK"
+}
 
 export const myFormationState = atom({
     key: 'myFormation',
@@ -15,6 +24,20 @@ export const allPlayerState = atom({
     key: 'allPlayerState',
     default: players
 });
+
+// export const allPlayerState = selector({
+//     key: 'allPlayerState',
+//     get: async () => {
+//         return fetchedData.response.map((entry) => ({
+//             id: entry.player.id,
+//             name: entry.player.name,
+//             match: "DSA VS ADS",
+//             price: 12900000,
+//             position: playerPositions[entry.statistics[0].games.position],
+//             totalPoints: 29
+//         }))
+//     }
+// });
 
 export const positionFilterState =  atom({
     key: 'positionFilterState',
